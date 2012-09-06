@@ -6,10 +6,10 @@
 ** Presentational: purely visual. A presentational class will carry no meaning other 
 
 * Basic principals of OOCSS
-** Heavy use of presentational classes
-** Dependent on application of presentational classes to the markup
-** Requires updates to the CSS and markup for design changes
-** Argument: lends itself to leaner CSS. Practical use cases creates thousands of lines of CSS that may never be used. Example: Twitter bootstrap
+	*Heavy use of presentational classes
+	*Dependent on application of presentational classes to the markup
+	*Requires updates to the CSS and markup for design changes
+	*Argument: lends itself to leaner CSS. Practical use cases creates thousands of lines of CSS that may never be used. Example: Twitter bootstrap
 
 * Basic principals of OOSCSS
 ** Requires Sass

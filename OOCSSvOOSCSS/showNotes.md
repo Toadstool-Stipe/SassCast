@@ -42,7 +42,7 @@ Sure OOCSS' goal is to address some of these issues. After all if you have this 
 
 But where I begin to have issue is that this is not easy to read. Someone coming into the code and not understanding the OOCSS framework has to really dig into the code to figure out what this means. Why does this combination of classes work? If changes are to be made, a developer needs to get into the markup as well as the CSS. In some cases, this may be a real issue depending on how other features are wired to the markup and classes. We all 'know' that we should create special selectors for JS, but do all developers do the right thing? 
 
-I don't 100% understand the naming convention of OOCSS, but for myself I like to use names that have meaning that everyone can understand. I want my cake and to be able to eat it too. After all, we are developers and we are masters of our domain, right. 
+I don't 100% understand the naming convention of OOCSS either. I like to use names that have meaning that everyone can understand. I want my cake and eat it too. After all, we are developers and we are masters of our domain, right? 
 
 Gettng back to semantic HTML and CSS. In the markup we are writing, it would make the most sense to use a class name that has meaning related to the content within. Lets use that `.billing-info` class again. This seems like a name that belongs to a form, so lets append this to a semantically correct tag like `fieldset`.
 
@@ -52,7 +52,7 @@ Gettng back to semantic HTML and CSS. In the markup we are writing, it would mak
 </fieldset>
 ```
 
-*Troll warning: The following example is to simply illustrate an example. I am not advocating that CSS should be written this way, I am simply using easy concepts for illustration. Put the Twitter down and don't send me emails.* 
+*Troll warning: The following example is simply an illustration. I am not advocating that CSS should be written this way. Put the Twitter down and don't send me emails.* 
 
 For this example we are going to style the form `label`. Now this label will be made up of a few simple styles like `font-family` `font-size` `color` and `margin`. For starters we may start with something like ...
 
@@ -101,11 +101,15 @@ Wow, that is a mouthful. What, you don't believe me? Have you seen the [Twitter 
 </a>
 ```
 
-I can see where the CSS will be so slim that it is max performance, but at what cost? The process of detailing the markup like this is a maintenance nightmare. And sure when you first start a project there are fewer lines of these OOCSS classes, but as the project grows the number of these classes will grow too. Then at what point does this become to hard to parse through? 
+C'mon, really? I am supposed to do that with each button in the site? Really? 
+
+But using these techniques I can see where the CSS will be so slim that it is max performance, but at what cost? The process of detailing the markup like this is a maintenance nightmare. And sure when you first start a project there are fewer lines of these OOCSS classes, but as the project grows the number of these classes will grow too. Then at what point does this become to hard to parse through? 
 
 Now OOCSS does have a solution for making all these rules easy to manage. There is a `core.css` file, but it is loaded with css `@import` rules. Really? OOCSS is supposed to be the demarkation of CSS performance and they are using one of the oldest, and [proven more then once],(http://goo.gl/ZkP2w) worst performance killer on the planet? 
 
-###Lets talk about OO'S'CSS now. 
+##Lets talk about OO'S'CSS now.
+### Or what I have been calling it, SMOOSCSS (pronounced 'smokes')
+*Scaleable, Modulare Object Oriented Sassy Cascading Style Sheets*
 
 Taking that same example we can get back to the semantic naming of these markup blocks and use Sass to create the reusable CSS objects. 
 

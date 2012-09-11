@@ -65,7 +65,7 @@ For this example we are going to style the form `label`. Now this label will be 
 }
 ```
 
-Looking at this, if you were following a design spec and weren't really following any OOCSS guidelines, this would make sense, but nothing is really reusable. All these 'parts' needs to be copied and pasted into other classes. So, how can we make this better? OOCSS says like this ...
+Looking at this, if you were following a design spec and weren't really following any OOCSS guidelines, this would make sense, but nothing is really reusable. All these 'parts' need to be copied and pasted into other classes. So, how can we make this better? OOCSS says like this ...
 
 ```css
 .arial-font-family {
@@ -93,9 +93,17 @@ Then in our markup we would do this:
 </fieldset>
 ```
 
-Wow, that is a mouthful. Looking at this, yes I can see where the CSS will be so slim that it is max performance. But at what cost? The process of detailing the markup like this is a maintenance nightmare. And sure when you first start a project there are fewer lines of these OOCSS classes, but as the project grows the number of these classes will grow too. Then at what point does this become to hard to parse through? 
+Wow, that is a mouthful. What, you don't believe me? Have you seen the [Twitter Bootstrap Button Generator](http://www.plugolabs.com/twitter-bootstrap-button-generator/)?
 
-Now OOCSS does have a solution for making all these rules easy to manage. There is a `core.css` file, but it is loaded with `@import` rules. Really? OOCSS is supposed to be the demarkation of CSS performance and they are using one of the oldest, and [proven more then once],(http://goo.gl/ZkP2w) the worst performance killer on the planet? 
+```html
+<a href="#" class="btn btn-success btn-large">
+  <i class="icon-white icon-heart"></i> Bootstrap Button Generator
+</a>
+```
+
+I can see where the CSS will be so slim that it is max performance, but at what cost? The process of detailing the markup like this is a maintenance nightmare. And sure when you first start a project there are fewer lines of these OOCSS classes, but as the project grows the number of these classes will grow too. Then at what point does this become to hard to parse through? 
+
+Now OOCSS does have a solution for making all these rules easy to manage. There is a `core.css` file, but it is loaded with css `@import` rules. Really? OOCSS is supposed to be the demarkation of CSS performance and they are using one of the oldest, and [proven more then once],(http://goo.gl/ZkP2w) worst performance killer on the planet? 
 
 ###Lets talk about OO'S'CSS now. 
 
@@ -103,7 +111,9 @@ Taking that same example we can get back to the semantic naming of these markup 
 
 ```html
 <fieldset class="billing-info">
-  ...
+  <label for="text-field">
+    ...
+  </label>
 </fieldset>
 ```
 
@@ -134,9 +144,9 @@ Taking that same example we can get back to the semantic naming of these markup 
 }
 ```
 
-In this example I am using a new feature of Sass, silent placeholders. This allows developers to make these OOCSS type presentational class and they sit there silent until they are extended within another class that will be used by the site. `.billing-info label` in this example. 
+In this example I am using a new feature of Sass, silent placeholders. This allows developers to make OOCSS type presentational class and they sit there silent until they are extended within another class that will be used by the site. `.billing-info label` in this example. 
 
-So what happens when we want to use these OOSCSS silent classes in other parts of the site, like so
+So what happens when we want to use these OOSCSS silent classes in other parts of the site, like so?
 
 ```scss
 div {
@@ -174,24 +184,4 @@ In the end we get this ...
 
 Extending classes in the CSS has long been the defacto way for writing tight CSS. While OOCSS does not directly advocate for this technique, I say that OO'S'CSS does. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Draw your own conclusions, make your own decisions. But from my experience in writing CSS for the past 12 years, Sass is hands down the best way to write scaleable and manageable CSS libraries. 

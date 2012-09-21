@@ -1,24 +1,30 @@
 #OOCSS v OOSCSS
 ##SassCast show notes
 
-###Differences between Semantic and Presentational classes
+Hey everyone and welcome to another installemnt of SassCast. 
+
+In this episode I am going to talk about what I see as the main differences between vanilla CSS w/OOCSS and using Sass. To begin, I want to make sure that we are all clear on the definitions betwee Semantic and Presentations classes.    
+
+###Semantic and Presentational classes
+* Presentational: purely visual. A presentational class will carry no meaning other then to describe the visual being applied to the HTML block.
 * Semantic: a taxonomy that carries meaning. A semantic class should make reference to the HTML block it is associated to. Example: `.user-registration`, or `.billing-info`
-* Presentational: purely visual. A presentational class will carry no meaning other then to describe the visual being applied to the HTML block. 
+
+Ok, now that we have that out of the way, let's get into the principals of OOCSS. The good and the bad. 
 
 ##Basic principals of OOCSS
 ### The good
 * Emphasis on reuse
 * Keep selectors lean
 * Extend classes
-* 'Style' separate from content
-* 'Content' separate from container
+* Emphasis on 'Style' separate from content
+* Emphasis on 'Content' separate from container
 
 ### The Bad
 * Heavy use of presentational classes
 * Requires application of presentational classes to the markup
 * Coupling of CSS(skin) to markup(structure)
 * Requires updates to the CSS and markup for design changes
-* Argument: lends itself to leaner CSS. Practical use cases creates thousands of lines of CSS that may never be used. Example: Twitter bootstrap
+* Argument: creates thousands of lines of CSS that may never be used. Example: Twitter bootstrap
 
 ###Basic principals of OOSCSS
 * There is no CSS, only Sass

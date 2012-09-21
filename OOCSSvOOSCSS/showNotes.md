@@ -28,14 +28,14 @@
 * Build UI structures and frameworks otherwise impossible with CSS
 * Extend classes in your Sass, not the DOM
 
-One can argue that Sass lends itself to code bloat, and I applaud OOCSS for it's ability to put a spotlight on the egregious misuse of CSS in some of the most popular and well written sites. Fact of the matter is that every site I have ever worked on, and had the please of speaking with others with similar experiences, have started out projects with the best of intentions. But after the site goes live and maintenance falls into the hands of others, the code quality goes astray. 
+One can argue that Sass lends itself to code bloat, and I applaud OOCSS for it's ability to put a spotlight on the egregious misuse of CSS in some of the most popular and well written sites. Fact of the matter is that every site I have ever worked on, and had the pleasure of speaking with others with similar experiences, have started out projects with the best of intentions. But after the site goes live and maintenance falls into the hands of others, the code quality goes astray. 
 
 Web sites and web applications of today are larger then ever. I remember writing CSS for sites that consisted of less then 100 lines of code. Hell, we hit that mark with a simple reset. As the CSS gets larger, the UI's get more complicated, the teams working together get larger and skill levels vary greatly, we need a better solution. 
 
 Sure OOCSS' goal is to address some of these issues. After all if you have this library of simply names classes like `.category` `.ptn` `.pvn` `.pan` `.simpleExt` `.onlinestore` etc ... and a simple way to document all these options and their meaning, it is reactively easy for another developer to come along and apply these classes to the markup like so
 
 ```html
-<div class="category pan simpleExt">
+<div class="pan simpleExt">
   ...
 </div>
 ```

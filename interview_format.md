@@ -1,8 +1,8 @@
 #SassCast, the interview
-The basic format behind SassCast is an open mic and allowing the interviewed guest to share their experiences. The interviewed guest will be given a few starter questions ahead of time in order to get a feel for the PodCast and basically 'break the ice' for the show. Beyond that, the guest is expected to own the conversations. Who they are, interesting anecdotal experiences, career moves and of course how Sass has or is currently playing a role in their projects. 
+The basic format behind SassCast is an open mic and allowing the interviewed guest to share their experiences. The interviewed guest will be given a few starter questions ahead of time in order to get a feel for the PodCast and basically 'break the ice' for the show. Beyond that, the interview will take focus on the quest. Who they are, interesting anecdotal experiences, career moves and of course how Sass has or is currently playing a role in their projects. 
 
 ##Questions
-SassCast guests will be sent initial questions that the host will be asking. This is not to be considered a script, but basically ice breakers for conversation and intended to hightlight the guests experiences with Sass.
+SassCast guests will be sent initial questions that the host will be asking. This is not to be considered a script, but basically kick off the initial conversation and intended to hightlight the guests experiences with Sass.
 
 
 ##PodCast format
@@ -16,7 +16,7 @@ Each show will follow a basic format for pace and consistency. Average PodCast i
 * Closing remarks
 
 ## Hardware/software
-SassCast interviewes are conducted online via Skype. A guest is requires to have a Skype account for the interview. It is recomended that the guest use a headset to reduce noise or at least be in a quiet room when speaking into their computer mic.
+SassCast interviewes are conducted online via Skype. A guest is required to have a Skype account for the interview. It is recomended that the guest use a headset mic to reduce noise. If a headset mic is not available, SassCast requests that the interviewee be in a quiet room when speaking into their computer mic.
 
 ##Time cues and post interview editing
 Rarely will these interviewes be posted 'as is'. Dead air, the occasional 'uncomfortable moment' and those pesky flubs and gaffes will be edited out. At any time if the guest feels that they trailed off and said something that they feel unconfortable about, please alert the host. 

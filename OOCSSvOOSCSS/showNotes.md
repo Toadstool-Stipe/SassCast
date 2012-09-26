@@ -34,31 +34,16 @@ Ok, now that we have that out of the way, let's get into the principals of OOCSS
 * Build UI structures and frameworks otherwise impossible with CSS
 * Extend classes in your Sass, not the DOM
 
-One can argue that Sass lends itself to code bloat, and I applaud OOCSS for it's ability to put a spotlight on the egregious misuse of CSS in some of the most popular and well written sites. Fact of the matter is that every site I have ever worked on, and had the pleasure of speaking with others with similar experiences, have started out projects with the best of intentions. But after the site goes live and maintenance falls into the hands of others, the code quality goes astray. 
 
-Web sites and web applications of today are larger then ever. I remember writing CSS for sites that consisted of less then 100 lines of code. Hell, we hit that mark with a simple reset. As the CSS gets larger, the UI's get more complicated, the teams working together get larger and skill levels vary greatly, we need a better solution. 
-
-Sure OOCSS' goal is to address some of these issues. After all if you have this library of simply names classes like `.category` `.ptn` `.pvn` `.pan` `.simpleExt` `.onlinestore` etc ... and a simple way to document all these options and their meaning, it is reactively easy for another developer to come along and apply these classes to the markup like so
+Sure OOCSS' goal is to address some of these issues. After all if you have this library of simply names classes like `.ptn` `.pvn` `.pan` etc ... and a simple way to document all these options and their meaning, it is reactively easy for another developer to come along and apply these classes to the markup like so.
 
 ```html
-<div class="pan simpleExt">
+<div class="pan">
   ...
 </div>
 ```
 
-But where I begin to have issue is that this is not easy to read. Someone coming into the code and not understanding the OOCSS framework has to really dig into the code to figure out what this means. Why does this combination of classes work? If changes are to be made, a developer needs to get into the markup as well as the CSS. In some cases, this may be a real issue depending on how other features are wired to the markup and classes. We all 'know' that we should create special selectors for JS, but do all developers do the right thing? 
-
-I don't 100% understand the naming convention of OOCSS either. I like to use names that have meaning that everyone can understand. I want my cake and eat it too. After all, we are developers and we are masters of our domain, right? 
-
-Gettng back to semantic HTML and CSS. In the markup we are writing, it would make the most sense to use a class name that has meaning related to the content within. Lets use that `.billing-info` class again. This seems like a name that belongs to a form, so lets append this to a semantically correct tag like `fieldset`.
-
-```html
-<fieldset class="billing-info">
-  ...
-</fieldset>
-```
-
-*Troll warning: The following example is simply an illustration. I am not advocating that CSS should be written this way. Put the Twitter down and don't send me emails.* 
+*Troll warning: The following example is simply an illustration.* 
 
 For this example we are going to style the form `label`. Now this label will be made up of a few simple styles like `font-family` `font-size` `color` and `margin`. For starters we may start with something like ...
 
@@ -71,10 +56,10 @@ For this example we are going to style the form `label`. Now this label will be 
 }
 ```
 
-Looking at this, if you were following a design spec and weren't really following any OOCSS guidelines, this would make sense, but nothing is really reusable. All these 'parts' need to be copied and pasted into other classes. So, how can we make this better? OOCSS says like this ...
+If you are following a design spec and weren't really following any OOCSS guidelines, this would make sense, but nothing is really reusable. All these 'parts' need to be copied and pasted into other classes. So, how can we make this better? OOCSS says like this ...
 
 ```css
-.arial-font-family {
+.label-font-family {
   font-family: arial;
 }
 
@@ -94,7 +79,7 @@ Looking at this, if you were following a design spec and weren't really followin
 Then in our markup we would do this:
 
 ```html
-<fieldset class="billing-info">
+<fieldset>
   <label for="field" class="arial-font-family larger-font-size text-color mbm">Form Label</label>
 </fieldset>
 ```
@@ -107,14 +92,7 @@ Wow, that is a mouthful. What, you don't believe me? Have you seen the [Twitter 
 </a>
 ```
 
-C'mon, really? I am supposed to do that with each button in the site? Really? 
-
-But using these techniques I can see where the CSS will be so slim that it is max performance, but at what cost? The process of detailing the markup like this is a maintenance nightmare. And sure when you first start a project there are fewer lines of these OOCSS classes, but as the project grows the number of these classes will grow too. Then at what point does this become to hard to parse through? 
-
-Now OOCSS does have a solution for making all these rules easy to manage. There is a `core.css` file, but it is loaded with css `@import` rules. Really? OOCSS is supposed to be the demarkation of CSS performance and they are using one of the oldest, and [proven more then once],(http://goo.gl/ZkP2w) worst performance killer on the planet? 
-
-##Lets talk about OO'S'CSS now.
-### Or what I have been calling it, SMOOSCSS (pronounced 'smokes')
+##Lets talk about OO'S'CSS now
 *Scaleable, Modulare Object Oriented Sassy Cascading Style Sheets*
 
 Taking that same example we can get back to the semantic naming of these markup blocks and use Sass to create the reusable CSS objects. 
@@ -156,7 +134,52 @@ Taking that same example we can get back to the semantic naming of these markup 
 
 In this example I am using a new feature of Sass, silent placeholders. This allows developers to make OOCSS type presentational class and they sit there silent until they are extended within another class that will be used by the site. `.billing-info label` in this example. 
 
-So what happens when we want to use these OOSCSS silent classes in other parts of the site, like so?
+Using this technique, the silent classes when extended into the `.billing-info` selector process to the following CSS.
+
+```css
+.billing-info label {
+  font-family: arial; }
+
+.billing-info label {
+  font-size: 150%; }
+
+.billing-info label {
+  color: #313131; }
+
+.billing-info label {
+  margin-bottom: 10px !important; }
+```
+
+Let's expand on this idea and say that we have labels for the Shipping Address that we want to have the same look.
+
+```scss
+.shiping-info {
+  label {
+    @extend %arial-font-family;
+    @extend %larger-font-size;
+    @extend %text-color;
+    @extend %mbm;
+  }
+}
+```
+
+Here's the CSS
+
+```css
+.billing-info label {
+  font-family: arial; }
+
+.billing-info label, .shiping-info label {
+  font-size: 150%; }
+
+.billing-info label, .shiping-info label {
+  color: #313131; }
+
+.billing-info label, .shiping-info label {
+  margin-bottom: 10px !important; }
+```
+
+So what happens when we want to use these OOSCSS placeholder classes in other parts of the site, like so?
 
 ```scss
 div {
@@ -176,20 +199,16 @@ In the end we get this ...
 
 ```css
 .billing-info label {
-  font-family: arial;
-}
+  font-family: arial; }
 
-.billing-info label, div:first-line {
-  font-size: 150%;
-}
+.billing-info label, .shiping-info label, div:first-line {
+  font-size: 150%; }
 
-.billing-info label {
-  color: #313131;
-}
+.billing-info label, .shiping-info label {
+  color: #313131; }
 
-.billing-info label, input[type=text] {
-  margin-bottom: 10px !important;
-}
+.billing-info label, .shiping-info label, input[type=text] {
+  margin-bottom: 10px !important; }
 ```
 
 Extending classes in the CSS has long been the defacto way for writing tight CSS. While OOCSS does not directly advocate for this technique, I say that OO'S'CSS does. 

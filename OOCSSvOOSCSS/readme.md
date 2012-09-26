@@ -37,6 +37,7 @@ Ok, now that we have that out of the way, let's get into the principals of OOCSS
 
 Sure OOCSS' goal is to address some of these issues. After all if you have this library of simply names classes like `.ptn` `.pvn` `.pan` etc ... and a simple way to document all these options and their meaning, it is reactively easy for another developer to come along and apply these classes to the markup like so.
 
+HTML
 ```html
 <div class="pan">
   ...
@@ -47,6 +48,7 @@ Sure OOCSS' goal is to address some of these issues. After all if you have this 
 
 For this example we are going to style the form `label`. Now this label will be made up of a few simple styles like `font-family` `font-size` `color` and `margin`. For starters we may start with something like ...
 
+CSS
 ```css
 .billing-info label {
   font-family: arial;
@@ -58,6 +60,7 @@ For this example we are going to style the form `label`. Now this label will be 
 
 If you are following a design spec and weren't really following any OOCSS guidelines, this would make sense, but nothing is really reusable. All these 'parts' need to be copied and pasted into other classes. So, how can we make this better? OOCSS says like this ...
 
+CSS
 ```css
 .label-font-family {
   font-family: arial;
@@ -78,6 +81,7 @@ If you are following a design spec and weren't really following any OOCSS guidel
 
 Then in our markup we would do this:
 
+HTML
 ```html
 <fieldset>
   <label for="field" class="arial-font-family larger-font-size text-color mbm">Form Label</label>
@@ -86,6 +90,7 @@ Then in our markup we would do this:
 
 Wow, that is a mouthful. What, you don't believe me? Have you seen the [Twitter Bootstrap Button Generator](http://www.plugolabs.com/twitter-bootstrap-button-generator/)?
 
+HTML
 ```html
 <a href="#" class="btn btn-success btn-large">
   <i class="icon-white icon-heart"></i> Bootstrap Button Generator
@@ -97,6 +102,7 @@ Wow, that is a mouthful. What, you don't believe me? Have you seen the [Twitter 
 
 Taking that same example we can get back to the semantic naming of these markup blocks and use Sass to create the reusable CSS objects. 
 
+HTML
 ```html
 <fieldset class="billing-info">
   <label for="text-field">
@@ -105,6 +111,7 @@ Taking that same example we can get back to the semantic naming of these markup 
 </fieldset>
 ```
 
+SCSS
 ```scss
 %arial-font-family {
   font-family: arial;
@@ -136,6 +143,7 @@ In this example I am using a new feature of Sass, silent placeholders. This allo
 
 Using this technique, the silent classes when extended into the `.billing-info` selector process to the following CSS.
 
+CSS
 ```css
 .billing-info label {
   font-family: arial; }
@@ -152,6 +160,7 @@ Using this technique, the silent classes when extended into the `.billing-info` 
 
 Let's expand on this idea and say that we have labels for the Shipping Address that we want to have the same look.
 
+SCSS
 ```scss
 .shiping-info {
   label {
@@ -164,7 +173,6 @@ Let's expand on this idea and say that we have labels for the Shipping Address t
 ```
 
 Here's the CSS
-
 ```css
 .billing-info label {
   font-family: arial; }
@@ -181,6 +189,7 @@ Here's the CSS
 
 So what happens when we want to use these OOSCSS placeholder classes in other parts of the site, like so?
 
+SCSS
 ```scss
 div {
   &:first-line {
@@ -197,6 +206,7 @@ input {
 
 In the end we get this ...
 
+CSS
 ```css
 .billing-info label {
   font-family: arial; }
@@ -213,4 +223,4 @@ In the end we get this ...
 
 Extending classes in the CSS has long been the defacto way for writing tight CSS. While OOCSS does not directly advocate for this technique, I say that OO'S'CSS does. 
 
-Draw your own conclusions, make your own decisions. But from my experience in writing CSS for the past 12 years, Sass is hands down the best way to write scaleable and manageable CSS libraries. 
+Draw your own conclusions, make your own decisions. But from my experience in writing CSS for the past 12 years, Sass is hands down the best way to write scaleable and manageable CSS libraries.

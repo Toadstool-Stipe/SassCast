@@ -36,7 +36,7 @@ Using Sass for style guide development and management
 Best practices for creating modulare mixins and creating smart defaults with silent placeholders 
 
 ###Sass tools 
-Lots of people are building Sass tools, let’s talk about frameworks and installed apps that are out there 
+Lots of people are building Sass tools, let's talk about frameworks and installed apps that are out there 
 
 ###Popular plugins and Compass extensions 
-what’s out there and hot
+what's out there and hot

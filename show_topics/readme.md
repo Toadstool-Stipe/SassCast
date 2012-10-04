@@ -7,6 +7,9 @@ Looking to `inspect` your Sass? [Sass Sleuth](http://goo.gl/LktW0) from [Mobify]
 ###CSS => Sass
 Walk through concept of taking a standard CSS file and convert to SCSS
 
+###Smacss and Sass
+As a follow up to OOCSS and Sass, how does the Smacss framework fit into Sass thinking
+
 ###File structure, configs, partials and manifest files
 Best practices and examples for advanced Sass file organization
 
